@@ -1,0 +1,920 @@
+#envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 150px;
+  background-color: #d9534f; /* Warm romantic red */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 3;
+}
+
+.flap {
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-bottom: 82px solid transparent;
+  /* a little smaller */
+  border-top: 98px solid #d9534f; /* Same romantic red */
+  /* a little larger */
+  transform-origin: top;
+  pointer-events: none;
+}
+
+.pocket {
+  border-left: 140px solid #f5a3a2; /* Soft pinkish red for the pocket */
+  border-right: 140px solid #f5a3a2;
+  border-bottom: 90px solid #ff6f61; /* Lighter romantic red */
+  border-top: 100px solid transparent;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.letter {
+  position: relative;
+  background-color: #fff;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  top: 5%;
+  border-radius: 6px;
+  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+  font-family: 'Nothing You Could Do', cursive;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.letter:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.words {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 14%;
+  background-color: #ffe6e6; /* Light romantic tone */
+}
+
+.words.line1 {
+  top: 10%;
+  font-size: 0.5rem;
+  width: 20%;
+  height: 7%;
+  font-size: 0.7rem;
+}
+
+.words.line2 {
+  top: 30%;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.words.line3 {
+  top: 50%;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.words.line4 {
+  top: 70%;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.words.line5 {
+  top: 10%;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.words.line6 {
+  top: 25%;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.words.line7 {
+  top: 40%;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.words.line8 {
+  top: 55%;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+  transition: transform 0.4s ease, z-index 0.6s;
+  z-index: 1;
+}
+
+.close .flap {
+  transform: rotateX(0deg);
+  transition: transform 0.4s 0.6s ease, z-index 1s;
+  z-index: 5;
+}
+
+.close .letter {
+  transform: translateY(0px);
+  height: 90%;
+  padding: 0;
+  position: relative;
+  transition: all 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.open .letter {
+  transform: translateY(-100px);
+  transition: transform 0.4s 0.6s ease, z-index 0.6s;
+  z-index: 2;
+}
+
+.hearts {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  pointer-events: none;
+}
+
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: #e60073; /* Deep romantic pink */
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  pointer-events: none;
+}
+
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.close .heart {
+  opacity: 0;
+  -webkit-animation: none;
+  animation: none;
+}
+
+.a1 {
+  left: 20%;
+  transform: scale(0.6);
+  opacity: 1;
+  -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -moz-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+.a2 {
+  left: 55%;
+  transform: scale(1);
+  opacity: 1;
+  -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -moz-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+.a3 {
+  left: 10%;
+  transform: scale(0.8);
+  opacity: 1;
+  -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -moz-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -600px;
+  }
+}
+@keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -600px;
+  }
+}
+@-webkit-keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+@keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+body {
+  background-color: #f0e6f6; /* Soft lavender for a romantic, dreamy feel */
+}
+
+.envlope-wrapper {
+  height: 380px;
+}
+
+.reset {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reset button {
+  font-weight: 800;
+  font-style: normal;
+  transition: all 0.1s linear;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: solid 2px #d9534f;
+  border-radius: 4px;
+  color: #d9534f;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 5px;
+  padding: 10px;
+  line-height: 1em;
+  text-decoration: none;
+  min-width: 120px;
+  cursor: pointer;
+}
+
+.reset button:hover {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+/* GIF celebration element */
+.celebration-gif {
+  position: fixed;
+  /* use CSS variables so each gif can override position/size */
+  bottom: var(--celebration-gif-bottom, 1000px);
+  right: var(--celebration-gif-right, 10px);
+  left: var(--celebration-gif-left, auto);
+  top: var(--celebration-gif-top, auto);
+  width: 90px !important;
+  height: 90px !important;
+  background-image: url('cinnamoroll-gif-12 (1).gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.5s ease-in;
+  z-index: 10003;
+}
+
+/* When JS wraps the GIF element it removes the original id, so
+   target the wrapper id to style the inner .celebration-gif
+   ensuring the correct background image still appears. */
+#celebration-gif-wrap .celebration-gif {
+  background-image: url('cinnamoroll-gif-12 (1).gif');
+}
+#celebration-gif-2-wrap .celebration-gif {
+  background-image: url('b1adba819abf70d9ea98d4e65ea9f2a5.gif');
+}
+
+.celebration-gif.show {
+  opacity: 1 !important;
+  animation: fadeIn 0.6s ease-in;
+  /* allow interaction only when visible */
+  pointer-events: auto !important;
+}
+
+/* Ensure wrapped inner GIFs stay hidden until `.show` is applied */
+#celebration-gif-wrap .celebration-gif,
+#celebration-gif-2-wrap .celebration-gif {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+#celebration-gif-wrap .celebration-gif.show,
+#celebration-gif-2-wrap .celebration-gif.show {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Apply smoother GPU-accelerated dragging when element has .dragging */
+.celebration-gif.dragging {
+  will-change: transform;
+  transition: none !important;
+  z-index: 12000 !important;
+}
+
+/* Improve touch behavior and avoid default image dragging/highlight on Safari */
+.celebration-gif, #celebration-gif-2 {
+  touch-action: none; /* prevent browser panning while dragging */
+  -webkit-user-drag: none; /* prevent image drag ghosting in Safari */
+  -webkit-tap-highlight-color: transparent; /* remove tap highlight on iOS */
+}
+
+/* Wrapper that floats/rotates slowly */
+.gif-wrap {
+  position: fixed;
+  display: block;
+  transform-origin: center center;
+  z-index: 10002;
+}
+/* By default wrappers should not intercept clicks; JS will add .active when visible */
+.gif-wrap { pointer-events: none; }
+.gif-wrap.active { pointer-events: auto; }
+.gif-wrap.gif-floating {
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+/* GIF 1 uses gifFly animation */
+#celebration-gif-wrap {
+  animation-name: gifFly;
+  /* slower, distinct duration for GIF 1 */
+  animation-duration: 18s !important;
+}
+/* GIF 2 uses gifFly2 animation and keeps its distinct path */
+#celebration-gif-2-wrap {
+  /* GIF 2 uses its own distinct path */
+  animation-name: gifFly2;
+  /* slightly different, slower duration for GIF 2 */
+  animation-duration: 22s !important;
+}
+.gif-wrap.paused { animation-play-state: paused !important; }
+
+@keyframes gifFly {
+  0% { left: 5%; top: 10%; transform: rotate(0deg); }
+  10% { left: 15%; top: 5%; transform: rotate(10deg); }
+  20% { left: 25%; top: 15%; transform: rotate(20deg); }
+  30% { left: 35%; top: 8%; transform: rotate(30deg); }
+  40% { left: 50%; top: 20%; transform: rotate(45deg); }
+  50% { left: 65%; top: 40%; transform: rotate(90deg); }
+  60% { left: 75%; top: 60%; transform: rotate(135deg); }
+  70% { left: 55%; top: 75%; transform: rotate(180deg); }
+  80% { left: 30%; top: 70%; transform: rotate(225deg); }
+  90% { left: 10%; top: 50%; transform: rotate(315deg); }
+  100% { left: 5%; top: 10%; transform: rotate(360deg); }
+}
+
+@keyframes gifFly2 {
+  0% { right: 8%; bottom: 15%; transform: rotate(45deg); }
+  10% { right: 5%; bottom: 35%; transform: rotate(60deg); }
+  20% { right: 15%; bottom: 55%; transform: rotate(80deg); }
+  30% { right: 35%; bottom: 70%; transform: rotate(110deg); }
+  40% { right: 55%; bottom: 75%; transform: rotate(150deg); }
+  50% { right: 70%; bottom: 65%; transform: rotate(180deg); }
+  60% { right: 80%; bottom: 40%; transform: rotate(210deg); }
+  70% { right: 70%; bottom: 15%; transform: rotate(240deg); }
+  80% { right: 40%; bottom: 5%; transform: rotate(280deg); }
+  90% { right: 15%; bottom: 10%; transform: rotate(330deg); }
+  100% { right: 8%; bottom: 15%; transform: rotate(405deg); }
+}
+
+@keyframes gifFloat {
+  0% { transform: translateX(0px) translateY(-30px) rotate(0deg); }
+  12.5% { transform: translateX(21px) translateY(-21px) rotate(45deg); }
+  25% { transform: translateX(30px) translateY(0px) rotate(90deg); }
+  37.5% { transform: translateX(21px) translateY(21px) rotate(135deg); }
+  50% { transform: translateX(0px) translateY(30px) rotate(180deg); }
+  62.5% { transform: translateX(-21px) translateY(21px) rotate(225deg); }
+  75% { transform: translateX(-30px) translateY(0px) rotate(270deg); }
+  87.5% { transform: translateX(-21px) translateY(-21px) rotate(315deg); }
+  100% { transform: translateX(0px) translateY(-30px) rotate(360deg); }
+}
+
+/* GIF controls panel */
+#gif-controls {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  padding: 10px 12px;
+  border-radius: 8px;
+  z-index: 11000;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #222;
+  width: 220px;
+}
+#gif-controls h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+}
+#gif-controls .row { display:flex; gap:6px; align-items:center; margin-bottom:6px; }
+#gif-controls label { width:48px; font-size:12px; }
+#gif-controls input { flex:1; padding:6px; font-size:13px; border:1px solid #ddd; border-radius:4px; }
+#gif-controls .hint { font-size:11px; color:#666; margin-top:6px }
+
+/* Make GIFs show move cursor to indicate draggable */
+.celebration-gif, #celebration-gif-2 { cursor: move; }
+
+/* second celebration GIF uses the requested file */
+#celebration-gif-2 {
+  background-image: url('b1adba819abf70d9ea98d4e65ea9f2a5.gif');
+  /* Remove the calc-based offset so it can be positioned like GIF 1/wrapper */
+  right: auto;
+  left: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.flow-heart:before,
+.flow-heart:after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #e60073;
+  border-radius: 50%;
+}
+.flow-heart:before {
+  top: -9px;
+  left: 0;
+}
+.flow-heart:after {
+  top: 0;
+  left: 9px;
+}
+
+/* Flow heart base element: positioned at click coordinates and animated */
+.flow-heart {
+  position: fixed; /* fixed so left/top are viewport coordinates */
+  width: 18px;
+  height: 18px;
+  background: #e60073; /* base square that becomes the lower part of the heart */
+  pointer-events: none;
+  z-index: 13010; /* place hearts above GIF wrappers and overlays */
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transform-origin: center center;
+  /* default animation; duration is overridden in JS per-element */
+  animation-name: heartFloat;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-play-state: paused; /* start paused, JS will set to running */
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translate(-50%, -50%) translateY(0) rotate(-45deg) scale(0.9);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-50%, -50%) translateY(-80px) rotate(-25deg) scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(-220px) rotate(20deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Mobile-specific flying animations for portrait */
+@media (max-width: 420px) and (orientation: portrait) {
+  @keyframes gifFly {
+    0% { left: 5%; top: 15%; transform: rotate(0deg); }
+    25% { left: 70%; top: 10%; transform: rotate(45deg); }
+    50% { left: 75%; top: 65%; transform: rotate(180deg); }
+    75% { left: 15%; top: 70%; transform: rotate(270deg); }
+    100% { left: 5%; top: 15%; transform: rotate(360deg); }
+  }
+  
+  @keyframes gifFly2 {
+    0% { right: 10%; bottom: 20%; transform: rotate(45deg); }
+    25% { right: 75%; bottom: 15%; transform: rotate(120deg); }
+    50% { right: 70%; bottom: 70%; transform: rotate(200deg); }
+    75% { right: 10%; bottom: 75%; transform: rotate(300deg); }
+    100% { right: 10%; bottom: 20%; transform: rotate(405deg); }
+  }
+  
+  #celebration-gif-wrap {
+    animation-duration: 10s !important;
+  }
+  
+  #celebration-gif-2-wrap {
+    animation-duration: 12s !important;
+  }
+}
+
+/* Mobile portrait GIF styling */
+@media (max-width: 420px) and (orientation: portrait) {
+  .celebration-gif {
+    width: 240px;
+    height: 240px;
+    bottom: 900px;
+    right: 180px;
+  }
+  /* responsive overrides for second GIF (mobile portrait)
+     You can override these with inline custom properties on #celebration-gif-2
+     e.g. style="--celebration-gif-2-right: 12px; --celebration-gif-2-bottom: 8px"
+  */
+  #celebration-gif-2 {
+    width: var(--celebration-gif-2-width, 240px);
+    height: var(--celebration-gif-2-height, 240px);
+    /* Position this second GIF to the same spot as the primary GIF in portrait */
+    bottom: var(--celebration-gif-bottom, -2px);
+    right: var(--celebration-gif-right, -40px);
+    left: auto;
+    top: auto;
+    z-index: 10001;
+  }
+}
+
+/* Mobile landscape GIF styling */
+@media (max-width: 900px) and (orientation: landscape) {
+  .celebration-gif {
+    width: 180px;
+    height: 180px;
+    bottom: 80px;
+    right: 16px;
+  }
+  /* responsive overrides for second GIF (mobile landscape)
+     Defaults position it to the left of the first GIF with a 12px gap.
+  */
+  #celebration-gif-2 {
+    width: var(--celebration-gif-2-width, 180px);
+    height: var(--celebration-gif-2-height, 180px);
+    bottom: var(--celebration-gif-2-bottom, 80px);
+    right: var(--celebration-gif-2-right, calc(var(--celebration-gif-right, 16px) + var(--celebration-gif-width, 180px) + 12px));
+  }
+}
+
+/* Portrait-specific text fixes: make words flow naturally inside the expanded letter */
+@media (max-width: 420px) and (orientation: portrait) {
+  /* Make each words block behave like a normal paragraph inside the letter */
+  .letter .words {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    padding: 8px 6px !important;
+    margin: 8px 0 !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+    color: #222 !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    background-color: transparent !important;
+  }
+
+  /* Remove any per-line top offsets that were set earlier */
+  .letter .words[class*="line"] { top: auto !important; }
+
+  /* Improve the visible area and ensure padding inside the letter content */
+  .envlope-wrapper.letter-open #envelope.open .letter {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+}
+/* Mobile portrait responsive styles for 390x800 — larger, centered envelope */
+@media (max-width: 420px) and (orientation: portrait) {
+  .envlope-wrapper {
+    height: auto;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: block;
+  }
+  
+  #envelope {
+    width: 370px;
+    height: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    top: calc(50vh - 130px);
+    position: relative;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  #envelope.open {
+    visibility: hidden;
+  }
+  
+  #envelope.open .letter {
+    visibility: visible;
+    position: fixed !important;
+    width: 98% !important;
+    height: 90vh !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    padding: 40px 25px !important;
+    margin: 0 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important;
+    z-index: 10001 !important;
+    overflow-y: auto !important;
+    background: white !important;
+  }
+  
+  .flap {
+    border-left: 185px solid transparent;
+    border-right: 185px solid transparent;
+    border-bottom: 90px solid transparent;
+    border-top: 150px solid #d9534f;
+  }
+  
+  .pocket {
+    border-left: 185px solid #f5a3a2;
+    border-right: 185px solid #f5a3a2;
+    border-bottom: 130px solid #ff6f61;
+  }
+  
+  .letter {
+    width: 92%;
+    height: 86%;
+    top: 6%;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+    font-size: 20px;
+    position: relative;
+    overflow-y: auto;
+    background: white;
+    transition: all 0.8s ease-out;
+  }
+  
+  #envelope.open .letter {
+    position: fixed !important;
+    width: 98% !important;
+    height: 90vh !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    padding: 40px 25px !important;
+    margin: 0 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important;
+    z-index: 10001 !important;
+    overflow-y: auto !important;
+  }
+  
+  .words {
+    left: 6%;
+    width: 88%;
+  }
+  
+  .words.content p {
+    background: #ffe6e6;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    color: #000;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .hearts {
+    top: 110px;
+  }
+  
+  .heart {
+    right: 8%;
+  }
+  
+  .heart:before,
+  .heart:after {
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #e60073;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  
+  .heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+  
+  .a1, .a2, .a3 {
+    animation-delay: 0.5s;
+  }
+  
+  .reset button {
+    min-width: 110px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .envlope-wrapper::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9997;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+  }
+  
+  .envlope-wrapper.letter-open::before {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* GIFs positioning when letter is open */
+  #celebration-gif {
+    position: fixed !important;
+    top: 50% !important;
+    left: 2% !important;
+    width: 80px !important;
+    height: 80px !important;
+    z-index: 10002 !important;
+    opacity: 1 !important;
+  }
+  
+  #celebration-gif-2 {
+    position: fixed !important;
+    top: 60% !important;
+    right: 3% !important;
+    width: 70px !important;
+    height: 70px !important;
+    z-index: 10002 !important;
+    opacity: 1 !important;
+  }
+  
+  .reset {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    z-index: 9999;
+    background: transparent;
+    padding: 0;
+    width: auto;
+    text-align: center;
+    pointer-events: auto;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .reset button {
+    display: inline-block;
+    margin: 0;
+    min-width: 110px;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile landscape responsive styles for 390x800 in landscape (800x390) */
+@media (max-width: 900px) and (orientation: landscape) {
+  body {
+    background-color: #f0e6f6;
+  }
+  .envlope-wrapper {
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #envelope {
+    width: 280px;
+    height: 180px;
+    margin: 0 auto;
+    top: 0;
+    position: relative;
+  }
+  .flap {
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 82px solid transparent;
+    border-top: 98px solid #d9534f;
+  }
+  .pocket {
+    border-left: 140px solid #f5a3a2;
+    border-right: 140px solid #f5a3a2;
+    border-bottom: 90px solid #ff6f61;
+    border-top: 90px solid transparent;
+  }
+  .letter {
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    font-size: 14px;
+  }
+  .words {
+    left: 10%;
+    width: 80%;
+  }
+  .words.line1 {
+    top: 10%;
+    font-size: 0.65rem;
+    width: 25%;
+    height: 7%;
+  }
+  .words.line2,
+  .words.line3,
+  .words.line4 {
+    font-size: 0.95rem;
+  }
+  .hearts {
+    top: 80px;
+  }
+  .heart {
+    right: 10%;
+  }
+  .heart:before,
+  .heart:after {
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    border-radius: 50px 50px 0 0;
+  }
+  .a1, .a2, .a3 {
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+  }
+  .reset {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+    z-index: 9999;
+    padding: 0;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  .reset button {
+    display: inline-block;
+    margin: 0;
+    min-width: 120px;
+    padding: 10px;
+    font-size: 13px;
+  }
+}
